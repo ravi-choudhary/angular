@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html ng-app="formExample">
+    <head>
+
+
+        <script src="js/angular.js" ></script>
+        <script src="js/formjs.js"></script>
+    </head>
+
+    <body>
+
+        <div ng-controller="formCtrl">
+            <form  name="userForm"  class="well form-search"   >
+
+                <input type="text" ng-model="name" class="input-medium search-query" placeholder="Name" required >
+                <input type="email" ng-model="email" class="input-medium search-query" placeholder="Email" required >
+                <input type="text" ng-model="message" class="input-medium search-query" placeholder="Message" required >
+                <button type="submit" class="btn" ng-click="formsubmit(userForm.$valid)"  ng-disabled="userForm.$invalid">Submit </button>
+
+            </form>
+     
+
+		
+			<table border="1px solid red;">
+				<tr ng-repeat="company in companies">
+		<td>{{company.name}}
+		</td>
+		<td>{{company.email}}
+		</td>
+		<td>{{company.message}}
+		</td>
+	</tr>
+			</table>
+		</div>
+
+    </body>
+
+</html>

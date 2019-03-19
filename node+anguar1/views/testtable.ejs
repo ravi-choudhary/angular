@@ -1,0 +1,34 @@
+<table border = "1" cellpadding="7" cellspacing="7">
+	<tr>
+		<th>No</th>
+		<th>UserName</th>
+		<th>Password</th>
+		<th>Delete</th>
+		<th>Edit</th>
+	</tr>
+	<%if(data.length){
+		for(var i=0;i<data.length;i++){ %>
+		<tr>
+			<td><%=(i+1)%></td>
+			<td><%=data[i].username%></td>
+			<td><%=data[i].password%></td>
+			<td><a href="/delete/<%=data[i].id%>">Delete</a></td>
+			<td><a href="/edit/<%=data[i].id%>">Edit</a></td>
+		</tr>
+	<% }
+	}else{ %>
+	<tr>
+		<td colspan="3"> NO User FOund</td>
+	</tr>
+	
+	<% } %>
+</table>
+
+<input type="text" id="userVal" onkeyup=show(this.value) placeholder="Search By Name">
+
+<script>
+function show(val){
+//console.log(window.location.origin+'/custSearch?userVal='+val);
+	location.href = 'http://localhost:4300/custSearch?userVal='+val;
+}
+</script>
